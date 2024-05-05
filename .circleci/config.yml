@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: app/src
     docker:
       # specify the version you desire here
       - image: circleci/android:api-28-alpha
@@ -17,9 +17,6 @@ jobs:
     
     steps:
       - checkout
-
-      # Set Fabric Api Key with environment variables
-      - run: echo "fabricApiKey=$FABRIC_API_KEY" >> ~/repo/local.properties
 
       # Download and cache dependencies
       - restore_cache:
